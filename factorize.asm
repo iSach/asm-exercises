@@ -7,13 +7,12 @@
 .type   factorize, @function
 
             mov R8, 1           ; R8 = prime factor dividing the number x. Starts at 2. (Increased each time so initial value has to be 1).
-            push esi            ; Used to copy edi to do the division without affecting the value, in case of a modulo different from 0.
 
 mainloop:                       ; Main loop, runs after a complete division of each prime factor. 
             cmp edi, 1          ; Compare the number with 1.
             jbe end             ; If the number equals 1 (or below but shouldn't happen except given as so), end the function.
             mov R9, 0           ; Used in dividing the number edi as the result.
-            mov esi, edi        ; Copy the content of edi into esi to do the division.
+            mov esi, edi        ; Copy the content of edi into esi to do the division, so we keep the value of edi the same.
             
 divloop:                        ; Dividing loop. Divides x by the current factor until the modulo is different from 0.
             cmp esi, R8         ; Compare the number with the divider.
