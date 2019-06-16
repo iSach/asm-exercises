@@ -6,7 +6,7 @@
 .global factorize
 .type   factorize, @function
 
-            mov r8, 1           ; R8 = prime factor dividing the number x. Starts at 2. (Increased each time so initial value has to be 1).
+factorize:  mov r8, 1           ; R8 = prime factor dividing the number x. Starts at 2. (Increased each time so initial value has to be 1).
 
 mainloop:                       ; Main loop, runs after a complete division of each prime factor. 
             cmp edi, 1          ; Compare the number with 1.
